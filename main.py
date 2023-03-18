@@ -11,8 +11,11 @@ class App:
         self.main_window.geometry('1200x520+350+100')
         self.main_window.minsize(500,500)# Width x Height
 
+        # this is is for the button for the user
         self.login_button_main_window = utils.get_button(self.main_window,'login','blue',self.login)
-        self.Register_button_main_window = utils.get_button(self.main_window,'Register','black',self.Register)
+        self.Register_button_main_window = utils.get_button(self.main_window,'Register','black',self.Register,fg='black')
+
+
 
 
     def start(self):
