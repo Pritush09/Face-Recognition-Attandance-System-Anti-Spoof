@@ -13,8 +13,11 @@ class App:
 
         # this is is for the button for the user
         self.login_button_main_window = utils.get_button(self.main_window,'login','blue',self.login)
-        self.Register_button_main_window = utils.get_button(self.main_window,'Register','black',self.Register,fg='black')
+        self.Register_button_main_window = utils.get_button(self.main_window,'Register','black',self.Register)
 
+        # placing the button on the window
+        self.login_button_main_window.place(x=750, y=300)
+        self.Register_button_main_window.place(x=750,y=400)
 
 
 
