@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import cv2
 import utils
 
 
@@ -18,6 +18,18 @@ class App:
         # placing the button on the window
         self.login_button_main_window.place(x=750, y=300)
         self.Register_button_main_window.place(x=750,y=400)
+
+        # putting the label # this img label which will be there but will only show if u pack it this is the hardcore rule of tkinter
+        self.webcam_label  = utils.get_img_label(self.main_window)
+        self.webcam_label.place(x=10,y=0,width=700,height=600)
+
+        self.add_webcam(self.webcam_label)
+
+
+    def add_webcam(self,label):
+
+        if 'cap' not in self.__dict__:
+            self.cap = cv2.VideoCapture(0)
 
 
 
