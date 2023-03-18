@@ -20,6 +20,8 @@ class App:
         self.Register_button_main_window.place(x=750,y=400)
 
         # putting the label # this img label which will be there but will only show if u pack it this is the hardcore rule of tkinter
+
+        # this is for making the instance of the label function so we can capture the video
         self.webcam_label  = utils.get_img_label(self.main_window)
         self.webcam_label.place(x=0,y=0,width=700,height=500)
 
@@ -31,6 +33,7 @@ class App:
         if 'cap' not in self.__dict__:
             self.cap = cv2.VideoCapture(0)
 
+        # we this this becz we cant simply take the input every time so we call the function by this function
         self._label = label
         self.process_webcam()
 
@@ -62,7 +65,43 @@ class App:
         pass
 
     def Register(self):
+        self.register_new_window = tk.Toplevel(self.main_window)
+        self.register_new_window.geometry('1200x520')
+        #button
+        self.accept_button = utils.get_button(self.register_new_window,'Accept','red',self.Accept)
+        self.accept_button.place(x=750, y=300)
+        self.tryagain_button = utils.get_button(self.register_new_window, 'Try Again', 'green', self.Try_Again)
+        self.tryagain_button.place(x=750, y=400)
+
+        self.capture_label = utils.get_img_label(self.register_new_window)
+        self.capture_label.place(x=10, y=0, width=700, height=500)
+
+        # we want to add a image not to capture the video inorder to save the image of the user
+        self.add_img_to_label(self.capture_label)
+
+        self.entry_text_register_new_user = utils.get_entry_text(self.register_new_window)
+        self.entry_text_register_new_user.place(x=750, y=150)
+
+        self.text_label_register_new_user = utils.get_text_label(self.register_new_window,'Please, Input username:')
+        self.text_label_register_new_user.place(x=750, y=70)
+
+    def add_img_to_label(self,label):
+        imgtk = ImageTk.PhotoImage(image=self.recent_Pil)  # here converting in which the tk will understand
+        label.imgtk = imgtk
+        label.configure(image=imgtk)
+
+        # we copied frames as we gonna use  opencv to save the image from the capture to our folder
+        self.register_new_user_capture = self.recent_frame.copy()
+
+
+
+
+    def Accept(self):
         pass
+
+    def Try_Again(self):
+        self.register_new_window.destroy()
+
 
 if __name__ == '__main__':
     obj = App()
