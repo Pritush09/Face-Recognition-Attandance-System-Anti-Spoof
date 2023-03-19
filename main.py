@@ -6,9 +6,9 @@ import cv2
 import utils
 from PIL import Image,ImageTk
 import face_recognition
+from test import test
 
 class App:
-
     def __init__(self):
         self.main_window = tk.Tk() #TK() pe ctrl+Leftclick
         #width  x height
@@ -66,24 +66,35 @@ class App:
         self.main_window.mainloop() # for every time we run the whole program mainloop is used
 
     def login(self):
-        # the directry may be different for you
-        cv2.imwrite("C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg",self.recent_frame)
-        output = subprocess.check_output(['face_recognition','C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\known people',
-                                          "C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg"])
-        #print(output)
-        # output looks like this b'C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg,Pritush\r\n'
-        last_output = str(str(output).split(",")[1])[:-5]
-        #print(last_output)
-        if last_output in ["unknown_person","no_persons_found"]:
-            utils.msg_box("Error!", "Please try again \n or register if not registered")
+        label = test(
+            image=self.recent_frame,
+            model_dir='C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\anti_spoof_models',
+            device_id=0
+        )
 
+        if label ==1:
+            # the directry may be different for you
+            cv2.imwrite("C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg",
+                        self.recent_frame)
+            output = subprocess.check_output(
+                ['face_recognition', 'C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\known people',
+                 "C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg"])
+            # print(output)
+            # output looks like this b'C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg,Pritush\r\n'
+            last_output = str(str(output).split(",")[1])[:-5]
+            # print(last_output)
+            if last_output in ["unknown_person", "no_persons_found"]:
+                utils.msg_box("Error!", "Please try again \n or register if not registered")
+
+            else:
+                utils.msg_box("Success", "Login successfully {}".format(last_output))
+                with open('log_data.txt', 'a') as f:
+                    f.write('{},{},in\n'.format(last_output, datetime.datetime.now()))
+                    f.close()
+
+            os.remove('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg')
         else:
-            utils.msg_box("Success", "Login successfully {}".format(last_output))
-            with open('log_data.txt','a') as f:
-                f.write('{},{},in\n'.format(last_output, datetime.datetime.now()))
-                f.close()
-
-        os.remove('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg')
+            utils.msg_box('Hey, you are a spoofer!', 'You are fake !')
 
 
     def Register(self):
