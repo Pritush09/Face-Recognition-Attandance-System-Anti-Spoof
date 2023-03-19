@@ -1,5 +1,6 @@
 import os
 import subprocess
+import datetime
 import tkinter as tk
 import cv2
 import utils
@@ -78,6 +79,9 @@ class App:
 
         else:
             utils.msg_box("Success", "Login successfully {}".format(last_output))
+            with open('log_data.txt','a') as f:
+                f.write('{},{},in\n'.format(last_output, datetime.datetime.now()))
+                f.close()
 
         os.remove('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg')
 
