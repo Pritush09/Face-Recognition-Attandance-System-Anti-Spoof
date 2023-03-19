@@ -1,7 +1,10 @@
+import os
+import subprocess
 import tkinter as tk
 import cv2
 import utils
 from PIL import Image,ImageTk
+import face_recognition
 
 class App:
 
@@ -62,7 +65,20 @@ class App:
         self.main_window.mainloop() # for every time we run the whole program mainloop is used
 
     def login(self):
-        pass
+        # the directry may be different for you
+        cv2.imwrite("C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg",self.recent_frame)
+        output = subprocess.check_output(['face_recognition','C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\known people',
+                                          "C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg"])
+        #print(output)
+        # output looks like this b'C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg,Pritush\r\n'
+        last_output = str(str(output).split(",")[1])[:-5]
+        print(last_output)
+        if last_output in ["unknown_person","no_persons_found"]:
+            utils.msg_box("Error!", "Please try again \n or register if not registered")
+            
+
+        os.remove('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg')
+
 
     def Register(self):
         self.register_new_window = tk.Toplevel(self.main_window)
