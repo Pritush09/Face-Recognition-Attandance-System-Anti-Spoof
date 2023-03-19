@@ -97,7 +97,15 @@ class App:
 
 
     def Accept(self):
-        pass
+        # this for my directory u may have different directory
+        # directory me save ho raha C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\known people
+        name = self.entry_text_register_new_user.get(1.0,"end-1c")# this text is to get the message from the box where the user wrote his or her name
+        # saving the image into the database
+        cv2.imwrite('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\known people\\{}.jpg'.format(name),self.register_new_user_capture)
+
+        utils.msg_box("Success!","You were registered successfully!")
+
+        self.register_new_window.destroy()
 
     def Try_Again(self):
         self.register_new_window.destroy()
