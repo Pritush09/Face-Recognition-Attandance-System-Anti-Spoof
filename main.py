@@ -72,10 +72,12 @@ class App:
         #print(output)
         # output looks like this b'C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg,Pritush\r\n'
         last_output = str(str(output).split(",")[1])[:-5]
-        print(last_output)
+        #print(last_output)
         if last_output in ["unknown_person","no_persons_found"]:
             utils.msg_box("Error!", "Please try again \n or register if not registered")
-            
+
+        else:
+            utils.msg_box("Success", "Login successfully {}".format(last_output))
 
         os.remove('C:\\Users\\mynam\\FACE  RECOGNITION ATTANDANCE SYSTEM\\unknown people\\temp.jpg')
 
