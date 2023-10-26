@@ -11,15 +11,15 @@ This project aims to develop a robust face recognition attendance system with an
 
 ### Installation
 Clone the repository from GitHub.
-bash
+
 `git clone https://github.com/yourusername/your-repository.git`
 
 Install the required dependencies.
-bash
+
 `pip install -r requirements.txt`
 
 Run the application.
-bash
+
 `python main.py`
 
 ### Usage
