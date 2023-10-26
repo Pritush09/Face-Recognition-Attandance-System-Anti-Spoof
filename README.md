@@ -29,8 +29,3 @@ Enroll users by capturing their faces for the first time.
 Use the system for attendance tracking and management.
 Monitor the anti-spoofing measures to ensure the system's security.
 
-### Acknowledgements
-I would like to thank the following resources and libraries that have contributed to the development of this project:
-
-* OpenCV
-Python Face Recognition
