@@ -5,6 +5,8 @@ This project aims to develop a robust face recognition attendance system with an
 
 ## Overview
 ![Screenshot 2023-10-26 115939](https://github.com/Pritush09/Face-Recognition-Attandance-System-Anti-Spoof/assets/89287734/9bc34cbe-c4db-400d-a46b-b9b1b0d7e133)
+DB(Database) =  Is just a plain text file (used like a database) in which we save user name and there time of login it is not a database 
+
 
 ### Features
 * Face detection and recognition for accurate identification.
@@ -32,3 +34,4 @@ Enroll users by capturing their faces for the first time.
 Use the system for attendance tracking and management.
 Monitor the anti-spoofing measures to ensure the system's security.
 
+### 
