@@ -1,4 +1,9 @@
 # Project Name: Face-Recognition Attendance System with Anti-Spoof
+
+## Overview of whole Project
+![Screenshot 2023-10-26 115939](https://github.com/Pritush09/Face-Recognition-Attandance-System-Anti-Spoof/assets/89287734/9bc34cbe-c4db-400d-a46b-b9b1b0d7e133)
+
+
 ### Description
 This project aims to develop a robust face recognition attendance system with anti-spoofing capabilities to prevent fraudulent attempts at marking attendance. It utilizes state-of-the-art facial recognition algorithms along with anti-spoofing techniques to ensure the system accurately identifies and verifies the faces of individuals and prevents spoofing attacks.
 
