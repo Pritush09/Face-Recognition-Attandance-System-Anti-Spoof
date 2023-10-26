@@ -33,4 +33,5 @@ Enroll users by capturing their faces for the first time.
 Use the system for attendance tracking and management.
 Monitor the anti-spoofing measures to ensure the system's security.
 
-### 
+### Acknowledegment
+Huge thanks to [minivision](https://github.com/minivision-ai/Silent-Face-Anti-Spoofing) for making such a great anti spoofing System and making that Open Source
