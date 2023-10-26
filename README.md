@@ -7,7 +7,6 @@ This project aims to develop a robust face recognition attendance system with an
 * Anti-spoofing measures to prevent fraudulent attempts.
 * Real-time attendance tracking and recording.
 * User-friendly interface for easy setup and management.
-* Scalable architecture to accommodate a growing number of users.
 
 ### Installation
 Clone the repository from GitHub.
