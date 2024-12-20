@@ -16,7 +16,7 @@ This project aims to develop a robust face recognition attendance system with an
 ### Installation
 Clone the repository from GitHub.
 
-`git clone https://github.com/yourusername/your-repository.git`
+`git clone https://github.com/Pritush09/Face-Recognition-Attandance-System-Anti-Spoof.git`
 
 Install the required dependencies.
 
